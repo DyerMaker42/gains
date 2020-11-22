@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_11_21_052646) do
+=======
+ActiveRecord::Schema.define(version: 2020_11_21_220109) do
+>>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gin"
@@ -47,13 +51,19 @@ ActiveRecord::Schema.define(version: 2020_11_21_052646) do
     t.text "description"
     t.string "video_url"
     t.string "thumbnail_image_url"
-    t.integer "user_id"
     t.boolean "upper_body"
     t.boolean "lower_body"
+    t.string "force"
+  end
+
+  create_table "exercises_muscles", id: false, force: :cascade do |t|
+    t.bigint "exercise_id", null: false
+    t.bigint "muscle_id", null: false
   end
 
   create_table "muscles", force: :cascade do |t|
     t.string "muscle_name"
+    t.string "muscle_group"
   end
 
   create_table "sets", force: :cascade do |t|
