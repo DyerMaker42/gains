@@ -76,7 +76,7 @@ export const ExerciseTab = (props:any) => {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <img src={props.thumbnail_image_url} alt="No image" width="250px" height="270px"/>
+        <img src={props.thumbnail_image_url} alt="No image" width="263px" height="300px"/>
         <br/>
         {props.description}
       </TabPanel>
@@ -84,9 +84,7 @@ export const ExerciseTab = (props:any) => {
         {props.force}
       </TabPanel> */}
       <TabPanel value={value} index={1}>
-        <video width="250px" height="270px" autoPlay>
-          <source src={props.video_url} type="video/mp4"/>
-        </video>
+        <img src={props.video_url} alt="No image" width="263px" height="300px"/>
       </TabPanel>
     </div>
   );

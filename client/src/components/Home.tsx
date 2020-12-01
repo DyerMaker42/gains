@@ -81,41 +81,39 @@ const tPCConverter = (num:number) => {
 }
 export const Home = ():React.ReactElement => {
   const {allDays, currentProgress} = useHomeData();
-  console.log(allDays);
-  console.log(currentProgress);
 
   return(
     <>
     <Title text={'WELCOME GAINS'} />
     <div>
       {allDays.map((day:any) => (
-      <Progress type="circle" percent={day["sum"]} width={50} status={colorCode(day["sum"])} format={() => `${sliceDate(day.workout_date)}`} />
+      <Progress 
+        type="circle" 
+        percent={day["sum"]} 
+        width={50} status={colorCode(day["sum"])} 
+        format={() => `${sliceDate(day.workout_date)}`} 
+      />
       ))}
-      </div>
-      { <div>
+    </div>
+    <div>
       {/* all goals currely hardcoded */}
-      <br/>
-      <br/>
       <h2>Goal: One Rep Max</h2>
       <h3>Bench Press Goal: 275</h3>
       <p>Currently lifting: {getOneRepMaxBench(currentProgress)}</p>
       <Progress percent={bpConverter(getOneRepMaxBench(currentProgress))} status="active" />
-      <br/>
-      <br/>
+  
       <h3>Back Squat Goal: 315</h3>
       <p>Currently lifting: {getOneRepMaxSquat(currentProgress)}</p>
       <Progress percent={bsConverter(getOneRepMaxSquat(currentProgress))} status="active" /> 
-      <br/>
-      <br/>
+     
       <h3>RDL Goal: 410</h3>
       <p>Currently lifting: {getOneRepMaxRDL(currentProgress)}</p>
       <Progress percent={rdlConverter(getOneRepMaxRDL(currentProgress))} status="active" />
-      <br/>
-      <br/>
+   
       <h3>1000 lb Club</h3>
       <p>Currently lifting: {thousandPoundClub(getOneRepMaxBench(currentProgress),getOneRepMaxSquat(currentProgress),getOneRepMaxRDL(currentProgress))} </p>
       <Progress percent={tPCConverter(thousandPoundClub(getOneRepMaxBench(currentProgress),getOneRepMaxSquat(currentProgress),getOneRepMaxRDL(currentProgress)))} status="active" /> 
-      </div> }
+    </div> 
     </>
   )
 }

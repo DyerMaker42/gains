@@ -6,6 +6,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import axios from 'axios';
 import { TextButton } from './TextButton';
+import '../styles/setsDialog.scss'
 
 interface IProps {
   workoutID:number,
@@ -53,13 +54,10 @@ export const SetsListDialog = (props: IProps):React.ReactElement => {
           sets.length ? 
             sets.map((set, index) => (
               <DialogContentText key={set.id}>
-                Set {index + 1}
+                <span className='set-title'>Set {index + 1}</span>
                 <br/>
-                Weight: {set.weight}LB
+                Weight: {set.weight}LB Reps: {set.reps} RPE: {set.rpe}
                 <br/>
-                Reps: {set.reps}
-                <br/>
-                RPE: {set.rpe}
               </DialogContentText>
             )) : 
             <DialogContentText>
