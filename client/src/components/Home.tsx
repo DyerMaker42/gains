@@ -60,17 +60,17 @@ const thousandPoundClub = (num1:number, num2:number, num3:number) => {
 //potential area of refactor, push max reps of goal to array, then map over arraywith function, great for MVD
 // next four convert max rep to pecentage based on hard coded goal, once we are able to input goals will modify accordingly
 const bpConverter = (num:number) => {
-  let result = Math.round(num / 275 * 100);
+  let result = Math.round(num / 240 * 100);
   return result;
 }
 
 const bsConverter = (num:number) => {
-  let result = Math.round(num / 315 * 100);
+  let result = Math.round(num / 325 * 100);
   return result;
 }
 
 const rdlConverter = (num:number) => {
-  let result = Math.round(num / 410 * 100);
+  let result = Math.round(num / 435 * 100);
   return result;
 }
 
@@ -98,7 +98,8 @@ export const Home = ():React.ReactElement => {
     <div>
       {/* all goals currely hardcoded */}
       <h2>Goal: One Rep Max</h2>
-      <h3>Bench Press Goal: 275</h3>
+      <h3>Bench Press Goal: 240</h3>
+      {/* go over wording as number represent current pr,not what currently lifting */}
       <p>Currently lifting: {getOneRepMaxBench(currentProgress)}</p>
       <Progress percent={bpConverter(getOneRepMaxBench(currentProgress))} status="active" />
   
