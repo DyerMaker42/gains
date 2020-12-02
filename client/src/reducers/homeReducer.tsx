@@ -7,17 +7,7 @@ type Action =
 | {type: 'SET_HOME', allDays:IDay[]}
 | {type: 'SET_GOALS', currentProgress:IMax[]}
 
-// interface IDay {
-//   workout_date:string,
-//   sum:number
-// }
-
-// interface IState {
-//   allDays: IDay[]
-// }
-
 export const homeReducer = (state: State, action: Action):State => {
-  console.log('homeReducer');
   
   switch (action.type) {
     case SET_HOME:

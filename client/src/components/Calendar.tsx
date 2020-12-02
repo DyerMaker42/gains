@@ -72,7 +72,6 @@ export const Calendars = () => {
   };
 
   useEffect(() => {
-    console.log('useEffect');
     let date = new Date();
     const dd = String(date.getDate()).padStart(2, '0');
     const mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -82,18 +81,13 @@ export const Calendars = () => {
   }, [allWorkouts]);
   
   const onSelect = (date:any) => {
-    console.log('onSelect');
     let workouts; 
     if(typeof date === 'string') {
-      console.log(allWorkouts);
       workouts = getWorkoutsByDate(allWorkouts, date);
     } else {
       const selectedDate = date.format().slice(0,10);
-      console.log(selectedDate);
       workouts = getWorkoutsByDate(allWorkouts, selectedDate);
-      console.log(workouts);
     }
-    console.log(workouts);
     setWorkouts(workouts);
   }
 

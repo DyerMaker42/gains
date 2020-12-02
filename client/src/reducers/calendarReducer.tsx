@@ -14,7 +14,6 @@ interface IState {
 }
 
 export const calendarReducer = (state: IState, action: Action):IState => {
-  console.log('calendarReducer');
   
   switch (action.type) {
     case SET_CALENDARWORKOUT:

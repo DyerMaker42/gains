@@ -4,6 +4,10 @@ import { Progress } from 'antd';
 import { IMax } from '../types/maxRepsType';
 import { Title } from './Title';
 import '../styles/home.scss'
+import { useWorkoutData } from '../hooks/useWorkoutData';
+import { Navigation } from './Navigation';
+import { useExercisesData } from '../hooks/useExercisesData';
+import { useCalendarData } from '../hooks/useCalendarData';
 
 //color code chagnes weeklyc ircle color based on total reps by day
 const colorCode = (sum:number):"success"|"normal"|"exception"|"active" => {
@@ -20,7 +24,7 @@ return status;
 }
 // cuts off year from date 
 const sliceDate = (date:string):string => {
-  let result = date.split("").slice(5, 10).join("");
+  let result = date.split("").slice(8, 10).join("");
   return result;
 }
 //getting highest, not current max squat
@@ -80,8 +84,14 @@ const tPCConverter = (num:number) => {
   let result = Math.round(num / 10);
   return result;
 }
+
+
 export const Home = ():React.ReactElement => {
   const {allDays, currentProgress} = useHomeData();
+  const allWorkouts = useCalendarData();
+  
+  let totalExercises = 0;
+  allWorkouts.map(workout => totalExercises += workout.exercises.length);
 
   return(
     <>
@@ -104,12 +114,12 @@ export const Home = ():React.ReactElement => {
     </div>
     <div className='statistic-container'>
       <div className='amount-container'>
-        <span className='amount'>188</span>
-        <span>Total Exercises</span>
+        <span className='amount'>{totalExercises}</span>
+        <span>Exercises Performed</span>
       </div>
       <div className='amount-container'>
-        <span className='amount'>10 Days</span>
-        <span>You Have Joined Us</span>
+        <span className='amount'>10</span>
+        <span>Days With Gains</span>
       </div>
     </div>
     <div className='progress-bar-container'>
@@ -117,7 +127,7 @@ export const Home = ():React.ReactElement => {
       {/* all goals currely hardcoded */}
       {/* go over wording as number represent current pr,not what currently lifting */}
       <div className='progress-bar'>
-      <h3>Bench Press Currently lifting/Goal: {getOneRepMaxBench(currentProgress)}/240</h3>
+      <h3>Bench Press <br/>Current: {getOneRepMaxBench(currentProgress)} Goal: 240</h3>
       <Progress 
         percent={bpConverter(getOneRepMaxBench(currentProgress))} 
         status="active" 
@@ -125,10 +135,11 @@ export const Home = ():React.ReactElement => {
           '0%': '#1990FF',
           '100%': '#9E5DFF',
         }}
+        key='bench-press'
       />
       </div>
       <div className='progress-bar'>
-      <h3>Back Squat Currently lifting/Goal: {getOneRepMaxSquat(currentProgress)}/315</h3>
+      <h3>Back Squat <br/> Current: {getOneRepMaxSquat(currentProgress)} Goal: 315</h3>
       <Progress 
         percent={bsConverter(getOneRepMaxSquat(currentProgress))} 
         status="active" 
@@ -136,10 +147,11 @@ export const Home = ():React.ReactElement => {
           '0%': '#1990FF',
           '100%': '#9E5DFF',
         }}
+        key='back squat'
       /> 
      </div>
      <div className='progress-bar'>
-      <h3>RDL Currently lifting/Goal: {getOneRepMaxRDL(currentProgress)}/410</h3>
+      <h3>RDL <br/> Current: {getOneRepMaxRDL(currentProgress)} Goal: 410</h3>
       <Progress 
         percent={rdlConverter(getOneRepMaxRDL(currentProgress))} 
         status="active" 
@@ -147,10 +159,11 @@ export const Home = ():React.ReactElement => {
           '0%': '#1990FF',
           '100%': '#9E5DFF',
         }}
+        key='rdl'
       />
       </div>
        <div className='progress-bar'>
-      <h3>1000 lb Club (Currently lifting: {thousandPoundClub(getOneRepMaxBench(currentProgress),getOneRepMaxSquat(currentProgress),getOneRepMaxRDL(currentProgress))} )</h3>
+      <h3>1000 lb Club <br/> Current: {thousandPoundClub(getOneRepMaxBench(currentProgress),getOneRepMaxSquat(currentProgress),getOneRepMaxRDL(currentProgress))} </h3>
       <Progress 
         percent={tPCConverter(thousandPoundClub(getOneRepMaxBench(currentProgress),getOneRepMaxSquat(currentProgress),getOneRepMaxRDL(currentProgress)))} 
         status="active"
@@ -158,6 +171,7 @@ export const Home = ():React.ReactElement => {
           '0%': '#1990FF',
           '100%': '#9E5DFF',
         }}
+        key='1000-lb-club'
       /> 
       </div>
     </div> 
