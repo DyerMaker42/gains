@@ -8,7 +8,7 @@ class Api::HomesController < ApplicationController
     on workouts.id = routines.workout_id 
     group by workouts.workout_date")
     
-    last_7_days = 7.days.ago.to_date..Time.now.in_time_zone('Pacific Time (US & Canada)').to_date
+    last_7_days = 6.days.ago.to_date..Time.now.in_time_zone('Pacific Time (US & Canada)').to_date
     
     sum_each_day = sett.reduce(Hash.new(0)) do |acc, item|
       acc.merge(item[:workout_date] => item[:sum])

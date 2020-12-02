@@ -237,39 +237,55 @@ e19=Exercise.create(
 Workout.destroy_all
 w1 = Workout.create(
   user_id: u1.id,
-  workout_date: "2020-11-23",
+  workout_date: "2020-11-20",
   workout_name: "Workout 1"
 )
 w2 = Workout.create(
   user_id: u1.id,
-  workout_date: "2020-11-24",
+  workout_date: "2020-11-21",
   workout_name: "Workout 2"
 )
 w3 = Workout.create(
   user_id: u1.id,
-  workout_date: "2020-11-26",
+  workout_date: "2020-11-23",
   workout_name: "Workout 3"
 )
 w4 = Workout.create(
   user_id: u1.id,
-  workout_date: "2020-11-28",
+  workout_date: "2020-11-24",
   workout_name: "Workout 4"
 )
 w5 = Workout.create(
   user_id: u1.id,
-  workout_date: "2020-11-30",
+  workout_date: "2020-11-25",
   workout_name: "Workout 5"
 )
 w6 = Workout.create(
   user_id: u1.id,
-  workout_date: "2020-12-01",
+  workout_date: "2020-11-26",
   workout_name: "Workout 6"
 )
 w7 = Workout.create(
   user_id: u1.id,
-  workout_date: "2020-12-02",
+  workout_date: "2020-11-28",
   workout_name: "Workout 7"
 )
+w8 = Workout.create(
+  user_id: u1.id,
+  workout_date: "2020-11-29",
+  workout_name: "Workout 8"
+)
+w9 = Workout.create(
+  user_id: u1.id,
+  workout_date: "2020-12-01",
+  workout_name: "Workout 9"
+)
+w10 = Workout.create(
+  user_id: u1.id,
+  workout_date: "2020-12-02",
+  workout_name: "Workout 10"
+)
+
 w69= Workout.create(
   user_id: u2.id,
   workout_date:"1969-04-20"
@@ -359,6 +375,42 @@ r20=Routine.create(
 r21=Routine.create(
   workout_id: w7.id,
   exercise_id: e1.id,
+)
+r22=Routine.create(
+  workout_id: w8.id,
+  exercise_id: e3.id,
+)
+r23=Routine.create(
+  workout_id: w8.id,
+  exercise_id: e4.id,
+)
+r24=Routine.create(
+  workout_id: w8.id,
+  exercise_id: e6.id,
+)
+r25=Routine.create(
+  workout_id: w9.id,
+  exercise_id: e3.id,
+)
+r26=Routine.create(
+  workout_id: w9.id,
+  exercise_id: e4.id,
+)
+r27=Routine.create(
+  workout_id: w9.id,
+  exercise_id: e6.id,
+)
+r28=Routine.create(
+  workout_id: w10.id,
+  exercise_id: e3.id,
+)
+r29=Routine.create(
+  workout_id: w10.id,
+  exercise_id: e4.id,
+)
+r30=Routine.create(
+  workout_id: w10.id,
+  exercise_id: e6.id,
 )
 
 Exercisemuscle.destroy_all
@@ -893,4 +945,58 @@ s63 = Sett.create(
   reps:5,
   rpe:9,
   weight: 120
+)
+s64 = Sett.create(
+  routine_id:r22.id,
+  reps:10,
+  rpe:9,
+  weight: 150
+)
+s65 = Sett.create(
+  routine_id:r23.id,
+  reps:10,
+  rpe:9,
+  weight: 120
+)
+s66 = Sett.create(
+  routine_id:r24.id,
+  reps:8,
+  rpe:9,
+  weight: 115
+)
+s67 = Sett.create(
+  routine_id:r25.id,
+  reps:10,
+  rpe:9,
+  weight: 160
+)
+s68 = Sett.create(
+  routine_id:r26.id,
+  reps:10,
+  rpe:9,
+  weight: 140
+)
+s69 = Sett.create(
+  routine_id:r27.id,
+  reps:8,
+  rpe:9,
+  weight: 130
+)
+s70 = Sett.create(
+  routine_id:r28.id,
+  reps:10,
+  rpe:9,
+  weight: 170
+)
+s71 = Sett.create(
+  routine_id:r29.id,
+  reps:10,
+  rpe:9,
+  weight: 150
+)
+s72 = Sett.create(
+  routine_id:r30.id,
+  reps:8,
+  rpe:9,
+  weight: 135
 )
