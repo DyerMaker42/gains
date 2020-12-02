@@ -133,7 +133,7 @@ export default class Insight extends React.Component {
           options={{
             title:{
               display:true,
-              text:'Bench Press Last 10 days',
+              text:'Bench Press One Rep Max ',
               fontSize:20
             },
             legend:{
@@ -171,7 +171,7 @@ export default class Insight extends React.Component {
         options={{
           title:{
             display:true,
-            text:'Back Squat Last 10 days',
+            text:'Back Squat One Rep Max',
             fontSize:20
           },
           legend:{
@@ -198,7 +198,7 @@ export default class Insight extends React.Component {
       options={{
         title:{
           display:true,
-          text:'RDL Last 10 days',
+          text:'RDL One Rep Max',
           fontSize:20
         },
         legend:{
