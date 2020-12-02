@@ -1,8 +1,13 @@
 import React from 'react';
 import { useHomeData } from '../hooks/useHomeData';
 import { Progress } from 'antd';
-import {IDay, IMax, State} from '../types/maxRepsType';
+import { IMax } from '../types/maxRepsType';
 import { Title } from './Title';
+import '../styles/home.scss'
+import { useWorkoutData } from '../hooks/useWorkoutData';
+import { Navigation } from './Navigation';
+import { useExercisesData } from '../hooks/useExercisesData';
+import { useCalendarData } from '../hooks/useCalendarData';
 
 //color code chagnes weeklyc ircle color based on total reps by day
 const colorCode = (sum:number):"success"|"normal"|"exception"|"active" => {
@@ -19,7 +24,7 @@ return status;
 }
 // cuts off year from date 
 const sliceDate = (date:string):string => {
-  let result = date.split("").slice(5, 10).join("");
+  let result = date.split("").slice(8, 10).join("");
   return result;
 }
 //getting highest, not current max squat
@@ -79,42 +84,98 @@ const tPCConverter = (num:number) => {
   let result = Math.round(num / 10);
   return result;
 }
+
+
 export const Home = ():React.ReactElement => {
   const {allDays, currentProgress} = useHomeData();
+  const allWorkouts = useCalendarData();
+  
+  let totalExercises = 0;
+  allWorkouts.map(workout => totalExercises += workout.exercises.length);
 
   return(
     <>
     <Title text={'WELCOME GAINS'} />
-    <div>
+    <div className='outter-container'>
+    <div className='circle-container'>
       {allDays.map((day:any) => (
       <Progress 
         type="circle" 
         percent={day["sum"]} 
-        width={50} status={colorCode(day["sum"])} 
+        width={40} status='normal' 
         format={() => `${sliceDate(day.workout_date)}`} 
+        strokeColor={{
+          '0%': '#1990FF',
+          '100%': '#9E5DFF',
+        }}
+        strokeWidth={12}
       />
       ))}
     </div>
-    <div>
+    <div className='statistic-container'>
+      <div className='amount-container'>
+        <span className='amount'>{totalExercises}</span>
+        <span>Exercises Performed</span>
+      </div>
+      <div className='amount-container'>
+        <span className='amount'>10</span>
+        <span>Days With Gains</span>
+      </div>
+    </div>
+    <div className='progress-bar-container'>
+      <span className='title'>Goal: One Rep Max</span>
       {/* all goals currely hardcoded */}
-      <h2>Goal: One Rep Max</h2>
-      <h3>Bench Press Goal: 240</h3>
       {/* go over wording as number represent current pr,not what currently lifting */}
-      <p>Currently lifting: {getOneRepMaxBench(currentProgress)}</p>
-      <Progress percent={bpConverter(getOneRepMaxBench(currentProgress))} status="active" />
-  
-      <h3>Back Squat Goal: 315</h3>
-      <p>Currently lifting: {getOneRepMaxSquat(currentProgress)}</p>
-      <Progress percent={bsConverter(getOneRepMaxSquat(currentProgress))} status="active" /> 
-     
-      <h3>RDL Goal: 410</h3>
-      <p>Currently lifting: {getOneRepMaxRDL(currentProgress)}</p>
-      <Progress percent={rdlConverter(getOneRepMaxRDL(currentProgress))} status="active" />
-   
-      <h3>1000 lb Club</h3>
-      <p>Currently lifting: {thousandPoundClub(getOneRepMaxBench(currentProgress),getOneRepMaxSquat(currentProgress),getOneRepMaxRDL(currentProgress))} </p>
-      <Progress percent={tPCConverter(thousandPoundClub(getOneRepMaxBench(currentProgress),getOneRepMaxSquat(currentProgress),getOneRepMaxRDL(currentProgress)))} status="active" /> 
+      <div className='progress-bar'>
+      <h3>Bench Press <br/>Current: {getOneRepMaxBench(currentProgress)} Goal: 240</h3>
+      <Progress 
+        percent={bpConverter(getOneRepMaxBench(currentProgress))} 
+        status="active" 
+        strokeColor={{
+          '0%': '#1990FF',
+          '100%': '#9E5DFF',
+        }}
+        key='bench-press'
+      />
+      </div>
+      <div className='progress-bar'>
+      <h3>Back Squat <br/> Current: {getOneRepMaxSquat(currentProgress)} Goal: 315</h3>
+      <Progress 
+        percent={bsConverter(getOneRepMaxSquat(currentProgress))} 
+        status="active" 
+        strokeColor={{
+          '0%': '#1990FF',
+          '100%': '#9E5DFF',
+        }}
+        key='back squat'
+      /> 
+     </div>
+     <div className='progress-bar'>
+      <h3>RDL <br/> Current: {getOneRepMaxRDL(currentProgress)} Goal: 410</h3>
+      <Progress 
+        percent={rdlConverter(getOneRepMaxRDL(currentProgress))} 
+        status="active" 
+        strokeColor={{
+          '0%': '#1990FF',
+          '100%': '#9E5DFF',
+        }}
+        key='rdl'
+      />
+      </div>
+       <div className='progress-bar'>
+      <h3>1000 lb Club <br/> Current: {thousandPoundClub(getOneRepMaxBench(currentProgress),getOneRepMaxSquat(currentProgress),getOneRepMaxRDL(currentProgress))} </h3>
+      <Progress 
+        percent={tPCConverter(thousandPoundClub(getOneRepMaxBench(currentProgress),getOneRepMaxSquat(currentProgress),getOneRepMaxRDL(currentProgress)))} 
+        status="active"
+        strokeColor={{
+          '0%': '#1990FF',
+          '100%': '#9E5DFF',
+        }}
+        key='1000-lb-club'
+      /> 
+      </div>
     </div> 
+    </div>
     </>
   )
 }

@@ -25,7 +25,6 @@ export const useHomeData = () => {
       .catch(err => console.log(err))
 
 }, [])
-  console.log('..............');
 
   return state;
 }

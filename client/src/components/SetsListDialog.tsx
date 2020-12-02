@@ -28,23 +28,13 @@ export const SetsListDialog = (props: IProps):React.ReactElement => {
   const [sets, setSets] = useState<ISet[]>([]);
 
   useEffect(() => {
-    console.log('useEffect');
-    
     axios
       .get(`./api/setts/${props.workoutID}/${props.exerciseID}`)
       .then(res => {
-        console.log('before second render');
         setSets(res.data)
-        console.log('axios done');
-        console.log(sets);
-        
       })
       .catch(err => console.log(err));
-    
-    console.log('useEffect');
-    
   }, [])
-  console.log('component rendered');
   return (
     <div>
       <Dialog open={props.open} aria-labelledby="form-dialog-title">

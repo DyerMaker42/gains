@@ -55,7 +55,6 @@ export const workoutReducer = (state: State, action: Action):State => {
         } 
         return workout
       })
-      console.log(workouts);
       
       return {
         ...state,

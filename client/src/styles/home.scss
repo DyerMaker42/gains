@@ -1,0 +1,51 @@
+.outter-container{
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  align-items: flex-start;
+  border-bottom: none !important;
+  .circle-container{
+    width: 90vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 1rem;
+  }
+  .statistic-container{
+    display: flex;
+    width: 90vw;
+    justify-content: space-between;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    .amount-container{
+      width: 42vw;
+      border-radius: 10px;
+      border: 5px solid #1990FF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: .5rem;
+      padding-bottom: .5rem;
+      .amount{
+        font-family: 'Fredoka One', cursive;
+        font-size: 2.5rem;
+      }
+    }
+  }
+  .progress-bar-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 90vw;
+    .progress-bar{
+      margin-bottom: 1rem;
+      width: 90vw;
+      text-align: left;
+    }
+    .title{
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.8em;
+      margin-bottom: 1rem;
+    }
+  }
+}
