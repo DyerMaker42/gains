@@ -237,17 +237,17 @@ e19=Exercise.create(
 Workout.destroy_all
 w1 = Workout.create(
   user_id: u1.id,
-  workout_date: "2020-11-20",
+  workout_date: "2020-11-30",
   workout_name: "Workout 1"
 )
 w2 = Workout.create(
   user_id: u1.id,
-  workout_date: "2020-11-21",
+  workout_date: "2020-12-01",
   workout_name: "Workout 2"
 )
 w3 = Workout.create(
   user_id: u1.id,
-  workout_date: "2020-11-23",
+  workout_date: "2020-12-03",
   workout_name: "Workout 3"
 )
 w4 = Workout.create(
@@ -257,7 +257,7 @@ w4 = Workout.create(
 )
 w5 = Workout.create(
   user_id: u1.id,
-  workout_date: "2020-11-25",
+  workout_date: "2020-12-05",
   workout_name: "Workout 5"
 )
 w6 = Workout.create(
@@ -272,17 +272,17 @@ w7 = Workout.create(
 )
 w8 = Workout.create(
   user_id: u1.id,
-  workout_date: "2020-11-29",
+  workout_date: "2020-11-25",
   workout_name: "Workout 8"
 )
 w9 = Workout.create(
   user_id: u1.id,
-  workout_date: "2020-12-01",
+  workout_date: "2020-12-02",
   workout_name: "Workout 9"
 )
 w10 = Workout.create(
   user_id: u1.id,
-  workout_date: "2020-12-02",
+  workout_date: "2020-12-03",
   workout_name: "morning workout"
 )
 
