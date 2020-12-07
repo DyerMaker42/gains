@@ -5,7 +5,7 @@
 **Tech Stack:** It's using React with TypeScript, Material UI, Ant Ui, and Chart.js for the frontend, and Ruby on Rails and PSQL for the server side.
 
 ## Screenshots:
-!["home page"](https://github.com/DyerMaker42/gains/blob/master/client/public/home.png =150x324)
+!["home page"](https://github.com/DyerMaker42/gains/blob/master/client/public/home.png | width=150)
 !["workout page"](https://github.com/DyerMaker42/gains/blob/master/client/public/workout.png =150x324)
 !["exercise page"](https://github.com/DyerMaker42/gains/blob/master/client/public/exercise.png =150x324)
 !["history page"](https://github.com/DyerMaker42/gains/blob/master/client/public/history.png =150x324)
