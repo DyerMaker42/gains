@@ -5,11 +5,11 @@
 **Tech Stack:** It's using React with TypeScript, Material UI, Ant Ui, and Chart.js for the frontend, and Ruby on Rails and PSQL for the server side.
 
 ## Screenshots:
-!["home page"]()
-<!-- !["workout page"](https://github.com/DyerMaker42/gains/blob/master/client/public/workout.png)
+!["home page"](https://github.com/DyerMaker42/gains/blob/master/client/public/home.png)
+!["workout page"](https://github.com/DyerMaker42/gains/blob/master/client/public/workout.png)
 !["exercise page"](https://github.com/DyerMaker42/gains/blob/master/client/public/exercise.png)
 !["history page"](https://github.com/DyerMaker42/gains/blob/master/client/public/history.png)
-!["insight page"](https://github.com/DyerMaker42/gains/blob/master/client/public/insight.png) -->
+!["insight page"](https://github.com/DyerMaker42/gains/blob/master/client/public/insight.png)
 
 ## Running Guide:
 - In the root, run `bundle install && bin/rails s` to start the server.
