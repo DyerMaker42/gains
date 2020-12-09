@@ -252,7 +252,7 @@ w3 = Workout.create(
 )
 w4 = Workout.create(
   user_id: u1.id,
-  workout_date: "2020-11-24",
+  workout_date: "2020-12-09",
   workout_name: "Workout 4"
 )
 w5 = Workout.create(
@@ -262,7 +262,7 @@ w5 = Workout.create(
 )
 w6 = Workout.create(
   user_id: u1.id,
-  workout_date: "2020-11-26",
+  workout_date: "2020-12-07",
   workout_name: "Workout 6"
 )
 w7 = Workout.create(
